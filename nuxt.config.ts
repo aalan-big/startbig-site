@@ -23,6 +23,8 @@ export default defineNuxtConfig({
         { name: 'description', content: 'ERP completo para assistências de informática, serigrafias, oficinas e muito mais. Experimente grátis por 14 dias.' }
       ],
       link: [
+        { rel: 'icon', type: 'image/png', href: '/img/LOGO.png' },
+        { rel: 'apple-touch-icon', href: '/img/LOGO.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' }
