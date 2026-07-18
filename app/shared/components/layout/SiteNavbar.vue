@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container navbar-inner">
       <a href="/" class="logo">
-        <SiteLogo />
+        <img src="/img/logo-startbig.png" alt="StartBIG" class="logo-img">
       </a>
       <ul class="nav-links">
         <li><a href="#funcionalidades">Funcionalidades</a></li>
@@ -48,6 +48,11 @@ const menuOpen = ref(false)
   display: flex;
   align-items: center;
   flex-shrink: 0;
+}
+.logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 .nav-links {
   display: flex;
