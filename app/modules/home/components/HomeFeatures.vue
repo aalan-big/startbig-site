@@ -23,43 +23,43 @@
 const features = [
   {
     icon: '🛒',
-    title: 'Controle de Vendas',
-    desc: 'Registre vendas, emita recibos e acompanhe o faturamento em tempo real.',
+    title: 'Frente de Caixa (PDV)',
+    desc: 'Venda rápido no balcão: dinheiro, cartão, boleto, transferência e parcelamento com juros.',
   },
   {
     icon: '🔧',
     title: 'Ordens de Serviço',
-    desc: 'Abra, gerencie e feche OS com histórico completo de serviços e peças.',
+    desc: 'Cadastre o equipamento do cliente e acompanhe reparo, aprovação, garantia e retirada.',
+  },
+  {
+    icon: '📦',
+    title: 'Estoque e Catálogo',
+    desc: 'Produtos, serviços e fornecedores com alerta de estoque mínimo e visão de capital parado.',
   },
   {
     icon: '👥',
     title: 'Cadastro de Clientes',
-    desc: 'Base de clientes completa com histórico de atendimentos e contatos.',
-  },
-  {
-    icon: '📦',
-    title: 'Gestão de Produtos',
-    desc: 'Controle de estoque com entradas, saídas e alertas de baixo estoque.',
-  },
-  {
-    icon: '📈',
-    title: 'Relatórios',
-    desc: 'Relatórios de vendas, ordens de serviço, estoque e financeiro para decidir com dados.',
-  },
-  {
-    icon: '📊',
-    title: 'Dashboard',
-    desc: 'Painel inicial com os principais indicadores do negócio em tempo real.',
+    desc: 'Base de clientes completa com histórico de compras, atendimentos e contatos.',
   },
   {
     icon: '👷',
-    title: 'Gestão de Equipe',
-    desc: 'Ranking de funcionários, controle de metas e desempenho individual.',
+    title: 'Equipe e Comissões',
+    desc: 'Cargos e permissões por funcionário, com comissão por venda e por serviço e meta mensal.',
   },
   {
-    icon: '🏢',
-    title: 'Dados da Empresa',
-    desc: 'Configure as informações da sua empresa, logo e dados de contato.',
+    icon: '📊',
+    title: 'Relatórios e Dashboard',
+    desc: 'Faturamento do dia, semana e mês, ranking da equipe, curva ABC e desempenho das OS.',
+  },
+  {
+    icon: '🖨️',
+    title: 'Impressão Profissional',
+    desc: 'Cupom em impressora térmica e documentos em A4 com a identidade da sua loja.',
+  },
+  {
+    icon: '☁️',
+    title: 'Backup na Nuvem',
+    desc: 'Seus dados salvos automaticamente fora da loja. Se o computador falhar, nada se perde.',
   },
 ]
 </script>

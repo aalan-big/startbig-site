@@ -47,8 +47,9 @@ onBeforeUnmount(stop)
           <span class="highlight">de forma inteligente</span>
         </h1>
         <p class="hero-sub">
-          Sistema ERP completo para assistências de informática e muito mais.
-          Controle vendas, ordens de serviço, clientes e equipe — tudo em um só lugar.
+          Sistema de gestão e PDV para quem vende produtos e presta serviços.
+          Vendas, ordens de serviço, estoque e equipe — tudo em um só lugar,
+          rodando direto no seu computador.
         </p>
         <div class="hero-actions">
           <a href="#download" class="btn-primary">
@@ -70,6 +71,7 @@ onBeforeUnmount(stop)
         <div class="hero-trust">
           <span>✓ Sem cartão de crédito</span>
           <span>✓ Instalação em minutos</span>
+          <span>✓ Backup na nuvem</span>
           <span>✓ Suporte incluído</span>
         </div>
       </div>

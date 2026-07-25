@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public: {
-      // Link de pagamento da Stripe do plano Start (R$49,90/mês).
+      // Link de pagamento da Stripe do plano Start (R$ 89,90/mês).
       // Definido pela variável de ambiente NUXT_PUBLIC_STRIPE_START_URL (.env).
       stripeStartUrl: '',
     },

@@ -28,7 +28,7 @@ O site abre em `http://localhost:3000`.
 Copie `.env.example` para `.env` e preencha:
 
 ```
-NUXT_PUBLIC_STRIPE_START_URL=   # Payment Link da Stripe do plano Start (R$ 49,90/mês)
+NUXT_PUBLIC_STRIPE_START_URL=   # Payment Link da Stripe do plano Start (R$ 89,90/mês)
 ```
 
 O botão "Contratar" do plano Start apenas redireciona para esse link de pagamento
