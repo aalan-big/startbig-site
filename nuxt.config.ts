@@ -3,13 +3,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  runtimeConfig: {
-    public: {
-      // Link de pagamento da Stripe do plano Start (R$ 89,90/mês).
-      // Definido pela variável de ambiente NUXT_PUBLIC_STRIPE_START_URL (.env).
-      stripeStartUrl: '',
-    },
-  },
   components: [
     { path: '~/shared/components', pathPrefix: false },
     { path: '~/modules/home/components', pathPrefix: false },

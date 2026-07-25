@@ -32,11 +32,10 @@
           </ul>
           <a
             v-if="plan.checkout"
-            :href="stripeStartUrl || '#planos'"
+            :href="plan.checkout"
             class="plan-cta cta-featured"
-            @click="onContratar"
           >
-            Contratar agora
+            Assinar agora
           </a>
           <span v-else class="plan-cta cta-soon">
             Em breve
@@ -51,24 +50,17 @@
 </template>
 
 <script setup>
-const stripeStartUrl = useRuntimeConfig().public.stripeStartUrl
-
-function onContratar(e) {
-  // Enquanto o link de pagamento não estiver configurado, evita levar o
-  // cliente pra lugar nenhum e avisa (só aparece em desenvolvimento).
-  if (!stripeStartUrl) {
-    e.preventDefault()
-    alert('O link de pagamento ainda não foi configurado. Defina NUXT_PUBLIC_STRIPE_START_URL no arquivo .env')
-  }
-}
-
+// `checkout` guarda a URL da página de assinatura do plano. Quem não tem
+// (Pro e Business, por enquanto) cai automaticamente no estado "Em breve".
+// A cobrança em si acontece fora deste repositório: a página de assinatura
+// identifica o cliente, cria a sessão na Stripe e trata o webhook.
 const plans = [
   {
     name: 'Start',
     price: '89,90',
     users: 3,
     featured: false,
-    checkout: true,
+    checkout: 'https://assine.startbig.com.br',
     features: [
       'Frente de caixa (PDV) e vendas',
       'Ordens de serviço com histórico',

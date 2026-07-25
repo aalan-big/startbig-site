@@ -23,17 +23,19 @@ npm run dev
 
 O site abre em `http://localhost:3000`.
 
-## Variáveis de ambiente
+Não há variáveis de ambiente: o site é 100% estático.
 
-Copie `.env.example` para `.env` e preencha:
+## Contratação de planos
 
-```
-NUXT_PUBLIC_STRIPE_START_URL=   # Payment Link da Stripe do plano Start (R$ 89,90/mês)
-```
+O botão "Assinar agora" do plano Start aponta para `https://assine.startbig.com.br`,
+fora deste repositório. É lá que o cliente é identificado, a sessão de pagamento é
+criada na Stripe (com o `licencaId` nos metadados) e o webhook renova a licença.
 
-O botão "Contratar" do plano Start apenas redireciona para esse link de pagamento
-da Stripe. O pagamento e a renovação de licença são tratados pelo SaaS na VPS
-(via webhook), fora deste repositório.
+O site **não** aponta direto para um Payment Link da Stripe: um link estático não
+consegue informar de qual licença é o pagamento, e o webhook descartaria a cobrança.
+
+A URL de cada plano fica em `checkout`, dentro de `HomePlans.vue`. Plano sem
+`checkout` aparece como "Em breve".
 
 ## Build de produção
 
