@@ -32,6 +32,16 @@ const features = [
     desc: 'Cadastre o equipamento do cliente e acompanhe reparo, aprovação, garantia e retirada.',
   },
   {
+    icon: '💰',
+    title: 'Financeiro Completo',
+    desc: 'Contas a pagar e receber, fluxo de caixa, fechamento de caixa e controle de despesas.',
+  },
+  {
+    icon: '🧾',
+    title: 'NF-e e NFC-e',
+    desc: 'Emissão de nota fiscal eletrônica e cupom fiscal direto do sistema, integrado às vendas.',
+  },
+  {
     icon: '📦',
     title: 'Estoque e Catálogo',
     desc: 'Produtos, serviços e fornecedores com alerta de estoque mínimo e visão de capital parado.',
@@ -79,7 +89,7 @@ const features = [
 }
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 .feature-card {
@@ -107,6 +117,11 @@ const features = [
   font-size: 14px;
   color: var(--muted);
   line-height: 1.6;
+}
+@media (max-width: 1100px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 900px) {
   .features-grid {

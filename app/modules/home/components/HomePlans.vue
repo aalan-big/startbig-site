@@ -63,6 +63,8 @@ const plans = [
     checkout: 'https://assine.startbig.com.br',
     features: [
       'Frente de caixa (PDV) e vendas',
+      'Emissão de NF-e e NFC-e',
+      'Financeiro completo',
       'Ordens de serviço com histórico',
       'Estoque, produtos e fornecedores',
       'Equipe, permissões e comissões',
