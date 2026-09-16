@@ -34,6 +34,7 @@
             v-if="plan.checkout"
             :href="plan.checkout"
             class="plan-cta cta-featured"
+            @click="onSubscribe(plan, $event)"
           >
             Assinar agora
           </a>
@@ -46,14 +47,58 @@
         Todos os planos iniciam com <strong>14 dias grátis</strong>. Cancele quando quiser.
       </p>
     </div>
+
+    <Teleport to="body">
+      <div
+        v-if="noticePlan"
+        class="modal-backdrop"
+        @click.self="closeNotice"
+      >
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="notice-title"
+        >
+          <button class="modal-close" aria-label="Fechar" @click="closeNotice">×</button>
+          <span class="modal-badge">Plano {{ noticePlan.name }}</span>
+          <h3 id="notice-title" class="modal-title">Antes de assinar, uma pergunta rápida</h3>
+          <p class="modal-text">
+            A assinatura de <strong>R$ {{ noticePlan.price }}/mês</strong> é a
+            <strong>licença do sistema</strong>: todas as funcionalidades, para até
+            {{ noticePlan.users }} usuários, com suporte padrão por e-mail.
+          </p>
+          <p class="modal-text">
+            Se a sua empresa precisa de uma <strong>estrutura maior</strong> — suporte
+            prioritário, implantação, treinamento da equipe ou SLA — isso é fechado
+            por <strong>contrato à parte</strong>, sob medida para a sua operação.
+          </p>
+          <div class="modal-actions">
+            <a :href="noticePlan.checkout" class="plan-cta cta-featured">
+              Quero só a assinatura
+            </a>
+            <a :href="contactUrl" class="plan-cta cta-outline" @click="closeNotice">
+              Preciso de suporte e contrato
+            </a>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </section>
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
 // `checkout` guarda a URL da página de assinatura do plano. Quem não tem
 // (Pro, por enquanto) cai automaticamente no estado "Em breve".
 // A cobrança em si acontece fora deste repositório: a página de assinatura
 // identifica o cliente, cria a sessão na Stripe e trata o webhook.
+//
+// `contractNotice: true` faz o botão abrir um aviso antes do checkout: a
+// assinatura é só a licença; suporte/estrutura maior é contrato à parte.
+const contactUrl = '#suporte'
+
 const plans = [
   {
     name: 'Start',
@@ -96,6 +141,7 @@ const plans = [
     users: 15,
     featured: false,
     checkout: 'https://assine.startbig.com.br',
+    contractNotice: true,
     features: [
       'Tudo do Pro',
       'Emissão de NF-e e NFC-e',
@@ -108,6 +154,25 @@ const plans = [
     ],
   },
 ]
+
+const noticePlan = ref(null)
+
+function onSubscribe(plan, event) {
+  if (!plan.contractNotice) return
+  event.preventDefault()
+  noticePlan.value = plan
+}
+
+function closeNotice() {
+  noticePlan.value = null
+}
+
+function onKeydown(e) {
+  if (e.key === 'Escape') closeNotice()
+}
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 </script>
 
 <style scoped>
@@ -247,6 +312,68 @@ const plans = [
   margin-top: 32px;
   font-size: 14px;
   color: var(--muted);
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(21, 21, 21, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal {
+  position: relative;
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 36px 32px 32px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+}
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+.modal-close:hover {
+  color: var(--dark);
+}
+.modal-badge {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+.modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.modal-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
 }
 @media (max-width: 768px) {
   .plans-grid {
