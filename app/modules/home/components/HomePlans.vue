@@ -81,6 +81,8 @@ const plans = [
     featured: true,
     features: [
       'Tudo do Start',
+      'Emissão de NF-e e NFC-e',
+      'Financeiro completo',
       'Gestão de equipe',
       'Relatórios completos',
       'Ranking de funcionários',
@@ -96,6 +98,8 @@ const plans = [
     checkout: 'https://assine.startbig.com.br',
     features: [
       'Tudo do Pro',
+      'Emissão de NF-e e NFC-e',
+      'Financeiro completo',
       'Mais usuários simultâneos',
       'Suporte prioritário',
       'Onboarding personalizado',
