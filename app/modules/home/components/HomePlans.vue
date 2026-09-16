@@ -126,7 +126,6 @@ const plans = [
     featured: true,
     features: [
       'Tudo do Start',
-      'Emissão de NF-e e NFC-e',
       'Financeiro completo',
       'Gestão de equipe',
       'Relatórios completos',
