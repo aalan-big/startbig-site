@@ -17,6 +17,3 @@ export function whatsappUrl(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
-export function mailtoUrl(subject) {
-  return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`
-}

@@ -115,3 +115,82 @@ a {
   color: var(--muted);
   line-height: 1.7;
 }
+
+/* ---- Conteúdo dos modais (BaseModal) ---- */
+.modal-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+.modal-btn {
+  display: block;
+  text-align: center;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.modal-btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+.modal-btn.primary:hover {
+  background: var(--primary-dark);
+}
+.modal-btn.outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--dark);
+}
+.modal-btn.outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.modal-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg-soft);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 8px;
+}
+.modal-copy code {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  word-break: break-all;
+}
+.modal-copy button {
+  flex-shrink: 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-copy button:hover {
+  background: var(--primary-dark);
+}
+.modal-copy button.done {
+  background: var(--success);
+}

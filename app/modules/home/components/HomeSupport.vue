@@ -22,7 +22,7 @@
               <span class="s-contact">{{ WHATSAPP_DISPLAY }}</span>
             </div>
           </a>
-          <a :href="mailtoUrl('Suporte StartBIG')" class="support-card">
+          <a href="#suporte" class="support-card" @click.prevent="open('email')">
             <span class="s-icon">📧</span>
             <div>
               <strong>E-mail</strong>
@@ -32,7 +32,7 @@
           </a>
         </div>
         <div id="download" class="download-area">
-          <a href="#" class="btn-download">
+          <a href="#download" class="btn-download" @click.prevent="open('download')">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />
@@ -48,7 +48,10 @@
 </template>
 
 <script setup>
-import { EMAIL, WHATSAPP_DISPLAY, whatsappUrl, mailtoUrl } from '~/shared/contact'
+import { EMAIL, WHATSAPP_DISPLAY, whatsappUrl } from '~/shared/contact'
+import { useSiteNotice } from '~/shared/composables/useSiteNotice'
+
+const { open } = useSiteNotice()
 </script>
 
 <style scoped>

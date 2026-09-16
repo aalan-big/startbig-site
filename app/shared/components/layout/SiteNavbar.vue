@@ -10,7 +10,7 @@
         <li><a href="#planos">Planos</a></li>
         <li><a href="#suporte">Suporte</a></li>
       </ul>
-      <a href="#download" class="btn-nav">Baixar grátis</a>
+      <a href="#download" class="btn-nav" @click.prevent="open('download')">Baixar grátis</a>
       <button class="menu-toggle" :class="{ open: menuOpen }" @click="menuOpen = !menuOpen" aria-label="Menu">
         <span /><span /><span />
       </button>
@@ -20,13 +20,16 @@
       <a href="#segmentos" @click="menuOpen = false">Segmentos</a>
       <a href="#planos" @click="menuOpen = false">Planos</a>
       <a href="#suporte" @click="menuOpen = false">Suporte</a>
-      <a href="#download" class="btn-primary" @click="menuOpen = false">Baixar grátis</a>
+      <a href="#download" class="btn-primary" @click.prevent="menuOpen = false; open('download')">Baixar grátis</a>
     </div>
   </nav>
 </template>
 
 <script setup>
+import { useSiteNotice } from '~/shared/composables/useSiteNotice'
+
 const menuOpen = ref(false)
+const { open } = useSiteNotice()
 </script>
 
 <style scoped>

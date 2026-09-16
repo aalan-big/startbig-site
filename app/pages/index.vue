@@ -7,5 +7,7 @@
     <HomePlans />
     <HomeSupport />
     <SiteFooter />
+    <DownloadNotice />
+    <EmailNotice />
   </div>
 </template>

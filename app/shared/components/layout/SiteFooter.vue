@@ -14,7 +14,7 @@
           <a href="#funcionalidades">Funcionalidades</a>
           <a href="#segmentos">Segmentos</a>
           <a href="#planos">Planos</a>
-          <a href="#download">Download</a>
+          <a href="#download" @click.prevent="open('download')">Download</a>
         </div>
         <div>
           <strong>Empresa</strong>
@@ -26,6 +26,12 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import { useSiteNotice } from '~/shared/composables/useSiteNotice'
+
+const { open } = useSiteNotice()
+</script>
 
 <style scoped>
 .footer {
