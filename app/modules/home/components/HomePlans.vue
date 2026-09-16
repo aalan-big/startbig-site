@@ -139,7 +139,7 @@ const plans = [
     price: '170,00',
     users: 15,
     featured: false,
-    checkout: 'https://assine.startbig.com.br',
+    checkout: 'https://assine.startbig.com.br/contratar?plano=business',
     contractNotice: true,
     features: [
       'Tudo do Pro',
