@@ -9,20 +9,27 @@
           Sem chatbot, sem fila — fala com quem realmente conhece o sistema.
         </p>
         <div class="support-options">
-          <div class="support-card">
+          <a
+            :href="whatsappUrl('Olá! Vim pelo site do StartBIG e preciso de ajuda.')"
+            target="_blank"
+            rel="noopener"
+            class="support-card"
+          >
             <span class="s-icon">💬</span>
             <div>
               <strong>WhatsApp</strong>
               <p>Resposta rápida para dúvidas e suporte técnico</p>
+              <span class="s-contact">{{ WHATSAPP_DISPLAY }}</span>
             </div>
-          </div>
-          <div class="support-card">
+          </a>
+          <a :href="mailtoUrl('Suporte StartBIG')" class="support-card">
             <span class="s-icon">📧</span>
             <div>
               <strong>E-mail</strong>
               <p>Para suporte detalhado e documentação</p>
+              <span class="s-contact">{{ EMAIL }}</span>
             </div>
-          </div>
+          </a>
         </div>
         <div id="download" class="download-area">
           <a href="#" class="btn-download">
@@ -39,6 +46,10 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { EMAIL, WHATSAPP_DISPLAY, whatsappUrl, mailtoUrl } from '~/shared/contact'
+</script>
 
 <style scoped>
 .support {
@@ -91,7 +102,16 @@
   transition: border-color 0.2s;
 }
 .support-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--secondary);
+  background: rgba(255, 255, 255, 0.06);
+}
+.s-contact {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #93C5FD;
+  word-break: break-all;
 }
 .s-icon {
   font-size: 24px;

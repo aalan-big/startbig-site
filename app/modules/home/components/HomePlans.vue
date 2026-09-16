@@ -77,7 +77,13 @@
             <a :href="noticePlan.checkout" class="plan-cta cta-featured">
               Quero só a assinatura
             </a>
-            <a :href="contactUrl" class="plan-cta cta-outline" @click="closeNotice">
+            <a
+              :href="contactUrl"
+              target="_blank"
+              rel="noopener"
+              class="plan-cta cta-outline"
+              @click="closeNotice"
+            >
               Preciso de suporte e contrato
             </a>
           </div>
@@ -89,6 +95,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { whatsappUrl } from '~/shared/contact'
 
 // `checkout` guarda a URL da página de assinatura do plano. Quem não tem
 // (Pro, por enquanto) cai automaticamente no estado "Em breve".
@@ -97,7 +104,9 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 //
 // `contractNotice: true` faz o botão abrir um aviso antes do checkout: a
 // assinatura é só a licença; suporte/estrutura maior é contrato à parte.
-const contactUrl = '#suporte'
+const contactUrl = whatsappUrl(
+  'Olá! Tenho interesse no plano Business do StartBIG com contrato de suporte.',
+)
 
 const plans = [
   {
