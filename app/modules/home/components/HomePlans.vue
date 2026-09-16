@@ -149,7 +149,6 @@ const plans = [
       'Suporte prioritário',
       'Onboarding personalizado',
       'Recursos exclusivos',
-      'SLA garantido',
     ],
   },
 ]
