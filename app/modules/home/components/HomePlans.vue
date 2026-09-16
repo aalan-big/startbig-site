@@ -51,7 +51,7 @@
 
 <script setup>
 // `checkout` guarda a URL da página de assinatura do plano. Quem não tem
-// (Pro e Business, por enquanto) cai automaticamente no estado "Em breve".
+// (Pro, por enquanto) cai automaticamente no estado "Em breve".
 // A cobrança em si acontece fora deste repositório: a página de assinatura
 // identifica o cliente, cria a sessão na Stripe e trata o webhook.
 const plans = [
@@ -88,9 +88,10 @@ const plans = [
   },
   {
     name: 'Business',
-    price: null,
+    price: '170,00',
     users: 15,
     featured: false,
+    checkout: 'https://assine.startbig.com.br',
     features: [
       'Tudo do Pro',
       'Mais usuários simultâneos',

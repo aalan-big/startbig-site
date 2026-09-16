@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'ERP completo para assistências de informática, serigrafias, oficinas e muito mais. Experimente grátis por 14 dias.' }
+        { name: 'description', content: 'ERP completo com PDV para assistências de informática, oficinas, serigrafias, marcenarias e lojas em geral. Experimente grátis por 14 dias.' }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },

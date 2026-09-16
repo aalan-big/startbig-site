@@ -5,8 +5,9 @@
         <span class="section-badge">Segmentos</span>
         <h2 class="section-heading">Para o seu tipo de negócio</h2>
         <p class="section-sub">
-          O StartBIG adapta-se ao seu setor. Já atendemos assistências de informática
-          e oficinas mecânicas — e estamos expandindo para muito mais.
+          O StartBIG adapta-se ao seu setor. Já atendemos assistências de informática,
+          oficinas mecânicas, serigrafias, marcenarias e lojas com PDV — e estamos
+          expandindo para muito mais.
         </p>
       </div>
       <div class="segments-grid">
@@ -46,7 +47,19 @@ const segments = [
     name: 'Serigrafia',
     icon: '🎨',
     desc: 'Gestão de pedidos personalizados, produção e controle de materiais.',
-    active: false,
+    active: true,
+  },
+  {
+    name: 'Marcenaria',
+    icon: '🪚',
+    desc: 'Orçamentos de móveis sob medida, ordens de produção e controle de materiais.',
+    active: true,
+  },
+  {
+    name: 'Loja / PDV',
+    icon: '🛒',
+    desc: 'Frente de caixa ágil, estoque, clientes e relatórios para o comércio em geral.',
+    active: true,
   },
   {
     name: 'Outros Segmentos',
@@ -72,7 +85,7 @@ const segments = [
 }
 .segments-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .segment-card {
