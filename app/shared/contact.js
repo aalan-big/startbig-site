@@ -1,5 +1,5 @@
 // Canais de contato da BIG TEC usados no site inteiro. Trocar aqui reflete
-// na seção Suporte, no modal do plano Business e onde mais for importado.
+// na seção Suporte e onde mais for importado.
 
 // Só dígitos, com DDI 55 e DDD. Ex.: '5511999998888'
 export const WHATSAPP_NUMBER = '5588996971128'

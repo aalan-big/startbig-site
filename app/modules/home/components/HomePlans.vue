@@ -22,6 +22,7 @@
               <span class="price-amount">R$ {{ plan.price }}</span>
               <span class="price-period">/mês</span>
             </template>
+            <span v-else-if="plan.quote" class="price-quote">Sob consulta</span>
             <span v-else class="price-soon">Em breve</span>
           </div>
           <div class="plan-users">Até {{ plan.users }} usuários</div>
@@ -34,9 +35,8 @@
             v-if="plan.checkout"
             :href="plan.checkout"
             class="plan-cta cta-featured"
-            @click="onSubscribe(plan, $event)"
           >
-            Assinar agora
+            {{ plan.quote ? 'Solicitar orçamento' : 'Assinar agora' }}
           </a>
           <span v-else class="plan-cta cta-soon">
             Em breve
@@ -47,57 +47,17 @@
         Todos os planos iniciam com <strong>14 dias grátis</strong>. Cancele quando quiser.
       </p>
     </div>
-
-    <BaseModal
-      :open="!!noticePlan"
-      :badge="noticePlan && `Plano ${noticePlan.name}`"
-      title="Antes de assinar, uma pergunta rápida"
-      @close="closeNotice"
-    >
-      <template v-if="noticePlan">
-        <p class="modal-text">
-          A assinatura de <strong>R$ {{ noticePlan.price }}/mês</strong> é a
-          <strong>licença do sistema</strong>: todas as funcionalidades, para até
-          {{ noticePlan.users }} usuários, com suporte padrão por e-mail.
-        </p>
-        <p class="modal-text">
-          Se a sua empresa precisa de uma <strong>estrutura maior</strong> — suporte
-          prioritário, implantação, treinamento da equipe ou SLA — isso é fechado
-          por <strong>contrato à parte</strong>, sob medida para a sua operação.
-        </p>
-        <div class="modal-actions">
-          <a :href="noticePlan.checkout" class="modal-btn primary">
-            Quero só a assinatura
-          </a>
-          <a
-            :href="contactUrl"
-            target="_blank"
-            rel="noopener"
-            class="modal-btn outline"
-            @click="closeNotice"
-          >
-            Preciso de suporte e contrato
-          </a>
-        </div>
-      </template>
-    </BaseModal>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { whatsappUrl } from '~/shared/contact'
-
 // `checkout` guarda a URL da página de assinatura do plano. Quem não tem
 // (Pro, por enquanto) cai automaticamente no estado "Em breve".
 // A cobrança em si acontece fora deste repositório: a página de assinatura
 // identifica o cliente, cria a sessão na Stripe e trata o webhook.
 //
-// `contractNotice: true` faz o botão abrir um aviso antes do checkout: a
-// assinatura é só a licença; suporte/estrutura maior é contrato à parte.
-const contactUrl = whatsappUrl(
-  'Olá! Tenho interesse no plano Business do StartBIG com contrato de suporte.',
-)
+// `quote: true` esconde o preço ("Sob consulta") e troca o botão por
+// "Solicitar orçamento": o valor é negociado direto com a empresa.
 
 const plans = [
   {
@@ -136,11 +96,11 @@ const plans = [
   },
   {
     name: 'Business',
-    price: '170,00',
+    price: null,
+    quote: true,
     users: 15,
     featured: false,
     checkout: 'https://assine.startbig.com.br/contratar?plano=business',
-    contractNotice: true,
     features: [
       'Tudo do Pro',
       'Emissão de NF-e e NFC-e',
@@ -153,17 +113,6 @@ const plans = [
   },
 ]
 
-const noticePlan = ref(null)
-
-function onSubscribe(plan, event) {
-  if (!plan.contractNotice) return
-  event.preventDefault()
-  noticePlan.value = plan
-}
-
-function closeNotice() {
-  noticePlan.value = null
-}
 </script>
 
 <style scoped>
@@ -240,6 +189,11 @@ function closeNotice() {
   font-size: 18px;
   font-weight: 600;
   color: var(--muted);
+}
+.price-quote {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dark);
 }
 .plan-users {
   font-size: 13px;
